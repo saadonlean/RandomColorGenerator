@@ -1,0 +1,412 @@
+body {
+  margin: 0;
+  font-family: cursive;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.color-container {
+  background-color: orange;
+  width: 300px;
+  height: 150px;
+  color: white;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  text-shadow: 2px 6px 8px rgba(0, 0, 0, 0.3);
+  border: solid black 2px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.gButton {
+  background-image: linear-gradient(
+    92.88deg,
+    #455eb5 9.16%,
+    #5643cc 43.89%,
+    #673fd7 64.72%
+  );
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 1s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  margin-right: 5px;
+  transform: translateX(-110%);
+}
+
+.gButton:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: 0.1s;
+}
+
+.gButton:active {
+  transform: scale(0.9);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease;
+  transform: translateX(-110%);
+}
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 0 2.6rem;
+  }
+}
+
+.bookmark-icon {
+  display: flex;
+  cursor: pointer;
+  border-radius: 4px;
+  border-color: red;
+  background-color: red;
+  transition: all 0.5s ease;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 1;
+  bottom: 5px;
+  right: 5px;
+  background-size: cover;
+}
+
+.bookmarked {
+  margin: auto;
+  padding: 1px 5px;
+  border-radius: px;
+  border: 3px solid transparent;
+  border-image: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border-image-slice: 1;
+  border-radius: 20px;
+
+  position: absolute;
+  display: flex;
+  visibility: hidden;
+  bottom: 2px;
+}
+
+.buttoncontainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100px;
+  z-index: 2;
+  transition: all 1s ease;
+  margin: auto;
+  height: 40px;
+  justify-content: center;
+}
+
+.bmAllButton {
+  background-image: linear-gradient(
+    92.88deg,
+    #455eb5 9.16%,
+    #5643cc 43.89%,
+    #673fd7 64.72%
+  );
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 1s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  z-index: 2;
+  margin: 2px;
+  transform: translateX(-79%);
+}
+
+.bmAllButton:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: 0.1s;
+}
+
+.bmAllButton:active {
+  transform: scale(0.8);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease;
+  transform: translateX(-79%);
+}
+
+.navbar {
+  background-color: rgba(41, 9, 107, 1);
+  position: fixed;
+  display: flex;
+  margin: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+  height: 60px;
+  z-index: 4;
+  overflow: hidden;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  margin: 0 10px;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li a:hover {
+  color: blue;
+  align-items: center;
+}
+
+.navbar.active {
+  background-color: blueviolet;
+}
+
+.navbar.active ul li a {
+  color: white;
+}
+
+.navbar h1 {
+  margin-left: 5px;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+  margin: 0;
+  font-size: 20px;
+  align-items: center;
+}
+
+.navbar h1:hover {
+  cursor: pointer;
+}
+
+.input {
+  height: 20px;
+  width: 200px;
+  margin-right: 5px;
+  padding-left: 5px;
+}
+
+.input:focus {
+  border-color: blue;
+  background-color: lightblue;
+  transition: all 0.5s ease;
+  outline: none;
+}
+
+.sidebar {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: rgba(69, 94, 181, 0.6);
+  box-shadow: -10px 0 10px hsla(0, 0%, 0%, 0.3);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  backdrop-filter: blur(10px);
+  display: flex;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.sidebar li {
+  width: 100%;
+
+  font-size: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.sidebar li a {
+  width: 100%;
+  top: 100px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  padding-left: 0px;
+}
+
+.darkmode-toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  width: 45px;
+  height: 20px;
+  position: relative;
+  background: #ebebeb;
+  border-radius: 20px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+label:after {
+  content: "";
+  width: 17px;
+  height: 16px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  border-radius: 18px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  transition: 0.3s;
+}
+
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+input:checked + label {
+  background: #242424;
+}
+
+input:checked + label:after {
+  left: 42px;
+  background: linear-gradient(180deg, #787878, #3a3a3a);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 30px;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: -1;
+  position: fixed;
+  transition: 0.3s;
+}
+
+input:checked + label + .background {
+  background: #242424;
+}
+
+.hamburger {
+  margin-left: 10px;
+}
+.hamburger-svg {
+  fill: white;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.sidebarX {
+  position: absolute;
+  top: -4px;
+  right: -88%; /* Adjust this value to your desired right position */
+  cursor: pointer;
+  padding-bottom: 40px;
+  justify-content: end;
+}
+
+.sidebarX :first-child {
+  fill: white;
+}
+
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .buttoncontainer {
+    display: none; /* Hide the button container */
+  }
+
+  .bmAllButton {
+    display: inline-block; /* Display the remove all button */
+    margin-right: 10px; /* Add margin for spacing */
+  }
+  .gButton {
+    display: inline-block; /* Display the remove all button */
+    margin-right: 10px; /* Add margin for spacing */
+  }
+}
+
+label svg {
+  position: absolute;
+  width: 15px;
+  top: 2.5px;
+  z-index: 6;
+  height: 15px;
+}
+
+label svg.sun {
+  transition: 0.3s;
+  left: 3px;
+  fill: white;
+}
+
+label svg.moon {
+  transition: 0.3s;
+  right: 3.5px;
+  fill: 77ee7e;
+}
+
+input:checked + label svg.sun {
+  fill: 77ee7e;
+}
+
+input:checked + label svg.moon {
+  fill: white;
+}
