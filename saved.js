@@ -198,11 +198,13 @@ window.addEventListener("resize", () => {
     rmAllButton.style.padding = "10px";
     rmAllButton.style.marginLeft = "5px";
     rmAllButton.style.marginTop = "25px";
+    rmAllButton.style.transform = "translateX(0)";
   } else {
     document.querySelector(".buttoncontainer").appendChild(rmAllButton); // Move the button back to the navbar
     rmAllButton.style.padding = "";
     rmAllButton.style.marginLeft = "";
     rmAllButton.style.marginTop = "";
+    rmAllButton.style.transform = "";
     if (rmAllHolderEL) {
       sidebar.removeChild(bmAllHolderEL);
     }

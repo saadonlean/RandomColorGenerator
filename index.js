@@ -207,20 +207,24 @@ window.addEventListener("resize", () => {
     bmAllButton.style.paddingBottom = "10px";
     bmAllButton.style.marginLeft = "5px";
     bmAllButton.style.marginTop = "15px";
+    bmAllButton.style.transform = "translateX(0)";
     gButton.style.paddingTop = "10px";
     gButton.style.paddingBottom = "10px";
     gButton.style.marginTop = "25px";
     gButton.style.marginLeft = "5px";
+    gButton.style.transform = "translateX(0)";
+    
   } else {
     document.querySelector(".buttoncontainer").appendChild(gButton);
     document.querySelector(".buttoncontainer").appendChild(bmAllButton); // Move the button back to the navbar
     bmAllButton.style.padding = "";
     bmAllButton.style.marginLeft = "";
     bmAllButton.style.marginTop = "";
+    bmAllButton.style.transform = "";
     gButton.style.padding = "";
     gButton.style.marginLeft = "";
     gButton.style.marginTop = "";	
-    
+    gButton.style.transform = "";
     if (gHolderEL) {
       sidebar.removeChild(gHolderEL);
     }
