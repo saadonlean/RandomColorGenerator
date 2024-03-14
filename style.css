@@ -261,6 +261,8 @@ h1 {
   display: flex;
   transition: all 0.5s ease;
   overflow: hidden;
+  visibility: visible; /* Set initial visibility to visible */
+  transform: translateX(100%);
 }
 
 .sidebar li {
