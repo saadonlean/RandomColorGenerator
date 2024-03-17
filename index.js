@@ -45,6 +45,11 @@ const containersCreate = (containerNum) => {
     colorContainerEL.appendChild(bookmarkIconEL);
     bookmarkIconEL.style.backgroundImage =
       "url('bookmark-svgrepo-com (1).svg')";
+
+    const copyIconEL = document.createElement("div");
+    copyIconEL.classList.add("copy-icon");
+    colorContainerEL.appendChild(copyIconEL);
+    copyIconEL.style.backgroundImage = "url('copy-svgrepo-com.svg')";
   }
 };
 
@@ -191,6 +196,41 @@ const setMode = () => {
   }
 };
 
+//* Function to copy the color code to clipboard
+let timeoutId; // globale Variable zum Speichern der Timer-ID
+
+const copy = (copyIconEL) => {
+  const colorContainerEL = copyIconEL.parentNode;
+  const colorCodeSpan = colorContainerEL.querySelector("span");
+  const textContent = colorCodeSpan.textContent;
+  navigator.clipboard.writeText(textContent);
+  const copiedFeedback = document.querySelector(".copiedContainer");
+
+  // Timer löschen, wenn vorhanden
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+
+  if (copiedFeedback.style.transform === "translateY(0%) translateX(-50%)") {
+    copiedFeedback.style.transform = "";
+    setTimeout(() => {
+      copiedFeedback.style.transform = "translateY(0%) translateX(-50%)";
+    }, 200);
+  } else {
+    copiedFeedback.style.transform = "translateY(0%) translateX(-50%)";
+  }
+
+  // Neuen Timer starten und Timer-ID speichern
+  timeoutId = setTimeout(() => {
+    copiedFeedback.style.transform = "translateY(-300%) translateX(-50%)";
+  }, 2000);
+};
+
+colorContainerELs.forEach((colorContainerEL) => {
+  const copyIconEL = colorContainerEL.querySelector(".copy-icon");
+  copyIconEL.addEventListener("click", () => copy(copyIconEL));
+});
+
 sidebarMenu.addEventListener("click", showSidebar);
 sidebarCloseEL.addEventListener("click", showSidebar);
 setMode();
@@ -213,7 +253,6 @@ window.addEventListener("resize", () => {
     gButton.style.marginTop = "25px";
     gButton.style.marginLeft = "5px";
     gButton.style.transform = "translateX(0)";
-    
   } else {
     document.querySelector(".buttoncontainer").appendChild(gButton);
     document.querySelector(".buttoncontainer").appendChild(bmAllButton); // Move the button back to the navbar
@@ -223,7 +262,7 @@ window.addEventListener("resize", () => {
     bmAllButton.style.transform = "";
     gButton.style.padding = "";
     gButton.style.marginLeft = "";
-    gButton.style.marginTop = "";	
+    gButton.style.marginTop = "";
     gButton.style.transform = "";
     if (gHolderEL) {
       sidebar.removeChild(gHolderEL);

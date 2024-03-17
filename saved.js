@@ -50,6 +50,11 @@ const containersCreate = (containerNum) => {
     colorContainerEL.appendChild(bookmarkIconEL);
     bookmarkIconEL.style.backgroundImage =
       "url('bookmark-svgrepo-com (1).svg')";
+    
+    const copyIconEL = document.createElement("div");
+    copyIconEL.classList.add("copy-icon");
+    colorContainerEL.appendChild(copyIconEL);
+    copyIconEL.style.backgroundImage = "url('copy-svgrepo-com.svg')";
   }
 };
 
@@ -168,6 +173,35 @@ const setMode = () => {
   }
 };
 
+let timeoutId; // globale Variable zum Speichern der Timer-ID
+
+const copy = (copyIconEL) => {
+  const colorContainerEL = copyIconEL.parentNode;
+  const colorCodeSpan = colorContainerEL.querySelector("span");
+  const textContent = colorCodeSpan.textContent;
+  navigator.clipboard.writeText(textContent);
+  const copiedFeedback = document.querySelector(".copiedContainer");
+
+  // Timer löschen, wenn vorhanden
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+
+  if (copiedFeedback.style.transform === "translateY(0%) translateX(-50%)") {
+    copiedFeedback.style.transform = "";
+    setTimeout(() => {
+      copiedFeedback.style.transform = "translateY(0%) translateX(-50%)";
+    }, 200);
+  } else {
+    copiedFeedback.style.transform = "translateY(0%) translateX(-50%)";
+  }
+
+  // Neuen Timer starten und Timer-ID speichern
+  timeoutId = setTimeout(() => {
+    copiedFeedback.style.transform = "translateY(-300%) translateX(-50%)";
+  }, 2000);
+};
+
 const savedContainers = () => {
   const createdContainerELs = document.querySelectorAll(".color-container");
   if (bookmarkList.length !== 0) {
@@ -180,7 +214,10 @@ const savedContainers = () => {
     }
   }
 };
-
+colorContainerELs.forEach((colorContainerEL) => {
+  const copyIconEL = colorContainerEL.querySelector(".copy-icon");
+  copyIconEL.addEventListener("click", () => copy(copyIconEL));
+});
 sidebarMenu.addEventListener("click", showSidebar);
 sidebarCloseEL.addEventListener("click", showSidebar);
 setMode();
@@ -206,7 +243,7 @@ window.addEventListener("resize", () => {
     rmAllButton.style.marginTop = "";
     rmAllButton.style.transform = "";
     if (rmAllHolderEL) {
-      sidebar.removeChild(bmAllHolderEL);
+      sidebar.removeChild(rmAllHolderEL);
     }
   }
 });
