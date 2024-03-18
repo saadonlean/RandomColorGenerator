@@ -172,14 +172,14 @@ bookmarkIconELs.forEach((bookmarkIconEL) => {
 //* Function to toggle dark mode
 const darkmode = () => {
   if (darkmodeEL.checked == true) {
-    const body = document.querySelector("body");
-    body.style.backgroundColor = "#2b2b2b";
-    body.style.transition = "all 0.5s ease";
+    const background = document.querySelector(".background");
+    background.style.background = "#2b2b2b";
+    background.style.transition = "all 0.5s ease";
     localStorage.setItem("darkmode", "true");
   } else {
-    const body = document.querySelector("body");
-    body.style.backgroundColor = "white";
-    body.style.transition = "all 0.5s ease";
+    const background = document.querySelector(".background");
+    background.style.background = "white";
+    background.style.transition = "all 0.5s ease";
     localStorage.setItem("darkmode", "false");
   }
 };
@@ -197,7 +197,7 @@ const setMode = () => {
 };
 
 //* Function to copy the color code to clipboard
-let timeoutId; // globale Variable zum Speichern der Timer-ID
+let timeoutId;
 
 const copy = (copyIconEL) => {
   const colorContainerEL = copyIconEL.parentNode;
@@ -206,7 +206,6 @@ const copy = (copyIconEL) => {
   navigator.clipboard.writeText(textContent);
   const copiedFeedback = document.querySelector(".copiedContainer");
 
-  // Timer löschen, wenn vorhanden
   if (timeoutId) {
     clearTimeout(timeoutId);
   }
@@ -220,7 +219,6 @@ const copy = (copyIconEL) => {
     copiedFeedback.style.transform = "translateY(0%) translateX(-50%)";
   }
 
-  // Neuen Timer starten und Timer-ID speichern
   timeoutId = setTimeout(() => {
     copiedFeedback.style.transform = "translateY(-300%) translateX(-50%)";
   }, 2000);
