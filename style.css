@@ -13,6 +13,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 70px;
+  height: 100%;
 }
 
 .color-container {
@@ -332,8 +333,10 @@ label:active:after {
 }
 
 .background {
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: #fff;
   z-index: -1;
   position: fixed;
