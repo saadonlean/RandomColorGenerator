@@ -146,17 +146,16 @@ bookmarkIconELs.forEach((bookmarkIconEL) => {
 //* Function to toggle dark mode
 const darkmode = () => {
   if (darkmodeEL.checked == true) {
-    const body = document.querySelector("body");
+    const background = document.querySelector(".background");
     headingEL.style.color = "white";
-    body.style.height = "100%";
-    body.style.backgroundColor = "#2b2b2b";
-    body.style.transition = "all 0.5s ease";
+    background.style.background = "#2b2b2b";
+    background.style.transition = "all 0.5s ease";
     localStorage.setItem("darkmode", "true");
   } else {
-    const body = document.querySelector("body");
+    const background = document.querySelector(".background");
     headingEL.style.color = "black";
-    body.style.backgroundColor = "white";
-    body.style.transition = "all 0.5s ease";
+    background.style.backgroundColor = "white";
+    background.style.transition = "all 0.5s ease";
     localStorage.setItem("darkmode", "false");
   }
 };
